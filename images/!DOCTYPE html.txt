@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vegetarian Menu</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            background: #1f1d1d; 
+            color: white;
+        }
+        header { 
+            background: #080808; 
+            color: white; 
+            text-align: center; 
+            padding: 20px; 
+        }
+        h1 { font-size: 36px; margin: 0; }
+        nav { 
+            text-align: center; 
+            padding: 10px; 
+            background: #252525; 
+        }
+        nav a { 
+            color: white; 
+            padding: 10px 15px; 
+            text-decoration: none; 
+            transition: background 0.3s; 
+        }
+        nav a:hover { background: #080808; }
+        .menu-container { 
+            display: flex; 
+            flex-wrap: wrap; 
+            justify-content: center; 
+            gap: 30px; 
+            padding: 20px; 
+        }
+        section { 
+            background: #252525; 
+            border-radius: 10px; 
+            padding: 20px; 
+            width: 300px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+        }
+        h2 { 
+            color: #f8f8f8; 
+            border-bottom: 2px solid #4CAF50; 
+            padding-bottom: 10px; 
+        }
+        ul { 
+            padding: 0; 
+            list-style: none; 
+        }
+        ul li { 
+            padding: 10px 0; 
+            font-size: 18px; 
+            font-weight: bold; 
+        }
+        img { 
+            width: 100%; 
+            max-width: 250px; 
+            height: auto; 
+            border-radius: 10px; 
+            margin: 10px auto; 
+            display: block; 
+            cursor: pointer; 
+        }
+        img:hover { transform: scale(1.05); transition: transform 0.3s; }
+
+        /* Modal Styles */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1000; 
+            left: 0; 
+            top: 0; 
+            width: 100%; 
+            height: 100%; 
+            background-color: rgba(0,0,0,0.7);
+        }
+        .modal-content {
+            background: white;
+            color: black;
+            margin: 10% auto;
+            padding: 20px;
+            width: 50%;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            position: relative;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .modal img {
+            width: 80%;
+            max-width: 400px;
+            border-radius: 10px;
+        }
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            color: black;
+            cursor: pointer;
+        }
+        .close:hover {
+            color: red;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Vegetarian Menu</h1>
+        <p>Fresh, delicious, and 100% vegetarian!</p>
+    </header>
+
+    <nav>
+       <a href="#">Home</a>
+       <a href="#">About</a>
+       <a href="#">Contact</a>
+    </nav>
+
+    <div class="menu-container">
+        <section>
+            <h2>Starters</h2>
+            <ul>
+                <li>Classic Caesar Salad</li>
+                <img src="11.jpg" alt="Classic Caesar Salad" data-desc="A fresh mix of crisp romaine lettuce, parmesan cheese, croutons, and creamy Caesar dressing.">
+                
+                <li>Bruschetta with Tomato & Basil</li>
+                <img src="12.jpg" alt="Bruschetta with Tomato & Basil" data-desc="Toasted bread topped with diced tomatoes, fresh basil, and a drizzle of olive oil.">
+                
+                <li>Crispy Garlic Bread</li>
+                <img src="13.jpg" alt="Crispy Garlic Bread" data-desc="Golden toasted bread with rich garlic butter and herbs.">
+            </ul>
+        </section>
+
+        <section>
+            <h2>Main Courses</h2>
+            <ul>
+                <li>Vegetable Stir-Fry</li>
+                <img src="14.jpg" alt="Vegetable Stir-Fry" data-desc="A colorful mix of stir-fried vegetables with a savory soy-based sauce.">
+                
+                <li>Paneer Butter Masala</li>
+                <img src="15.jpg" alt="Paneer Butter Masala" data-desc="Soft paneer cubes cooked in a rich and creamy tomato-based curry.">
+                
+                <li>Spinach & Ricotta Ravioli</li>
+                <img src="16.jpg" alt="Spinach & Ricotta Ravioli" data-desc="Homemade ravioli filled with fresh spinach and ricotta cheese, served in a light tomato sauce.">
+            </ul>
+        </section>
+
+        <section>
+            <h2>Desserts</h2>
+            <ul>
+                <li>Chocolate Lava Cake</li>
+                <img src="17.jpg" alt="Chocolate Lava Cake" data-desc="A warm chocolate cake with a molten chocolate center.">
+                
+                <li>Fruit Salad</li>
+                <img src="18.jpg" alt="Fruit Salad" data-desc="A refreshing mix of seasonal fruits served with a hint of honey.">
+                
+                <li>Mango Cheesecake</li>
+                <img src="19.jpg" alt="Mango Cheesecake" data-desc="A creamy cheesecake with a rich mango topping.">
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Vegetarian Delights</p>
+    </footer>
+
+    <!-- Modal Structure -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="dishTitle"></h2>
+            <img id="dishImage" src="" alt="">
+            <p id="dishDescription"></p>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById("imageModal");
+        const modalImage = document.getElementById("dishImage");
+        const modalTitle = document.getElementById("dishTitle");
+        const modalDesc = document.getElementById("dishDescription");
+        const closeModal = document.querySelector(".close");
+
+        document.querySelectorAll(".menu-container img").forEach(img => {
+            img.addEventListener("click", () => {
+                modal.style.display = "block";
+                modalImage.src = img.src;
+                modalTitle.innerText = img.alt;
+                modalDesc.innerText = img.getAttribute("data-desc");
+            });
+        });
+
+        closeModal.addEventListener("click", () => modal.style.display = "none");
+        window.addEventListener("click", event => {
+            if (event.target === modal) modal.style.display = "none";
+        });
+    </script>
+</body>
+</html>

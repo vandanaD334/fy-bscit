@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Delicious Bites</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark: #333231;
+            --gold: #d4af37;
+            --light: #f8f8f8;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--dark);
+            color: var(--light);
+            margin: 0;
+            line-height: 1.6;
+        }
+        nav {
+            background: var(--dark);
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        nav a:hover {
+            color: var(--gold);
+        }
+        nav a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s;
+        }
+        nav a:hover:after {
+            width: 100%;
+        }
+        .about-container {
+            max-width: 900px;
+            margin: 4rem auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        .about-img {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.5s;
+        }
+        .about-img:hover {
+            transform: scale(1.02);
+        }
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+        .about-content h1 {
+            color: var(--gold);
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        .about-content h1:after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background: var(--gold);
+            bottom: -10px;
+            left: 0;
+        }
+        .about-content p {
+            margin-bottom: 2rem;
+            font-weight: 300;
+            font-size: 1.1rem;
+        }
+        .highlight {
+            color: var(--gold);
+            font-weight: 600;
+        }
+        @media (max-width: 768px) {
+            .about-container {
+                grid-template-columns: 1fr;
+                margin: 2rem auto;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes fadeInUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+ @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes fadeInUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+       <a href="C:\Users\stjos\OneDrive\Desktop\fy bscit\index.html.html">Home</a></li>
+            <li><a href="C:\Users\stjos\OneDrive\Desktop\fy bscit\MENU.HTML.html">Menu</a></li>
+            <li><a href="C:\Users\stjos\OneDrive\Desktop\fy bscit\contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="about-container">
+        <div class="about-img">
+            <img src="C:\Users\stjos\OneDrive\Desktop\fy bscit\New Folder\p1.jpg" alt="Delicious Bites restaurant interior" loading="lazy">
+        </div>
+        <div class="about-content">
+            <h1>Our Story</h1>
+            <p>Founded in 2010, <span class="highlight">Delicious Bites</span> has been serving exceptional cuisine in a warm, inviting atmosphere. Our passion for culinary excellence is matched only by our commitment to memorable dining experiences.</p>
+            <p>Every dish tells a story - of tradition, innovation, and most importantly, <span class="highlight">love for food</span>. We source only the finest ingredients to create flavors that delight and inspire.</p>
+        </div>
+    </div>
+</body>
+</html>

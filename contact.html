@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        body { 
+            font-family: Arial; 
+            margin: 0; 
+            background: whitesmoke; 
+            text-align: center; 
+        }
+        header, footer { 
+            background: dimgray; 
+            color: white; 
+            padding: 15px; 
+        }
+        nav { 
+            background: slategray; 
+            padding: 10px; 
+        }
+        nav ul { 
+            list-style: none; 
+            padding: 0; 
+            display: flex; 
+            justify-content: center; 
+            gap: 20px; 
+        }
+        nav a { 
+            color: white; 
+            text-decoration: none; 
+        }
+        nav a:hover { 
+            color: coral; 
+        }
+        section { 
+            max-width: 500px; 
+            margin: 20px auto; 
+            padding: 20px; 
+            background: white; 
+            border-radius: 10px; 
+            box-shadow: 0 2px 5px silver; 
+        }
+        form { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 10px; 
+        }
+        input, textarea { 
+            padding: 10px; 
+            border: 1px solid silver; 
+            border-radius: 5px; 
+        }
+        button { 
+            background: coral; 
+            color: white; 
+            border: none; 
+            padding: 10px; 
+            border-radius: 5px; 
+            cursor: pointer; 
+        }
+        button:hover { 
+            background: chocolate; 
+        }
+        .whatsapp-btn { 
+            display: block; 
+            background: limegreen; 
+            color: white; 
+            padding: 10px; 
+            border-radius: 5px; 
+            text-decoration: none; 
+            margin: 15px 0; 
+        }
+        .whatsapp-btn:hover { 
+            background: forestgreen; 
+        }
+        .msg { 
+            display: none; 
+            padding: 10px; 
+            border-radius: 5px; 
+        }
+        .success { 
+            background: honeydew; 
+            color: darkgreen; 
+        }
+        .error { 
+            background: mistyrose; 
+            color: darkred; 
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes fadeInUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+ @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <header><h1>Contact Us</h1></header>
+    <nav>
+        <ul>
+       <a href= "C:\Users\stjos\OneDrive\Desktop\fy bscit\index.html.html">Home</a>
+        <a href="C:\Users\stjos\OneDrive\Desktop\fy bscit\MENU.HTML.html">Menu</a>
+       <a href="C:\Users\stjos\OneDrive\Desktop\fy bscit\ABOUR.html">About</a>
+
+        </ul>
+    </nav>
+
+    <section>
+        <h2>Get in Touch</h2>
+        <form id="contact-form">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea id="message" placeholder="Your Message" required rows="4"></textarea>
+            <button type="submit">Send</button>
+            <p class="msg success">Message sent successfully!</p>
+            <p class="msg error">Please fill all fields.</p>
+        </form>
+        
+        <a href="https://wa.me/917038463287" class="whatsapp-btn">Chat on WhatsApp</a>
+        
+        <p>📍 123 Food Street | 📞 +91 7038463287 | 🕒 8AM-12AM</p>
+    </section>
+
+    <footer>&copy; 2025 Restaurant Name</footer>
+
+    <script>
+        document.getElementById("contact-form").addEventListener("submit", function(e) {
+            e.preventDefault();
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const message = document.getElementById("message").value.trim();
+            const [success, error] = document.querySelectorAll(".msg");
+
+            success.style.display = error.style.display = "none";
+            
+            if (!name || !email || !message) {
+                error.style.display = "block";
+            } else {
+                success.style.display = "block";
+                window.open(`https://wa.me/917038463287?text=${encodeURIComponent(
+                    `Name: ${name}\nEmail: ${email}\nMessage: ${message}`
+                )}`, "_blank");
+                this.reset();
+                setTimeout(() => success.style.display = "none", 3000);
+            }
+        });
+    </script>
+</body>
+</html>

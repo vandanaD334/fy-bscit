@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spice & Soul</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f8f8f8; }
+        header { background: #333; color: white; text-align: center; padding: 20px; animation: fadeIn 8s ease-in; }
+        nav { text-align: center; background: #444; padding: 10px; animation: slideDown 1s ease-in-out; }
+        nav a { color: white; margin: 0 15px; text-decoration: none; font-size: 18px; transition: color 0.3s ease-in-out; }
+        nav a:hover { color: #ffcc00; }
+        .container { padding: 20px; max-width: 900px; margin: auto; background: white; animation: fadeIn 1.5s ease-in; }
+        .menu { text-align: center; padding: 20px; }
+        .menu-item { border-bottom: 1px solid #ddd; padding: 10px 0; opacity: 0; animation: fadeInUp 1s forwards; }
+        footer { text-align: center; padding: 15px; background: #333; color: white; position: relative; bottom: 0; width: 100%; animation: fadeIn 2s ease-in; }
+        .hero { text-align: center; animation: zoomIn 2s ease-in-out; }
+        .hero img { width: 100%; max-height: 400px; object-fit: cover; }
+        .gallery { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+        .gallery img { width: 30%; height: 200px; object-fit: cover; border-radius: 5px; transform: scale(0.8); transition: transform 0.5s ease-in-out; }
+        .gallery img:hover { transform: scale(1); }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes fadeInUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Spice & Soul</h1>
+        <p>Delicious Food, Great Ambience</p>
+    </header>
+    <nav>
+        <a href= "C:\Users\stjos\OneDrive\Desktop\fy bscit\index.html.html">Home</a>
+        <a href="C:\Users\stjos\OneDrive\Desktop\fy bscit\MENU.HTML.html">Menu</a>
+       <a href="C:\Users\stjos\OneDrive\Desktop\fy bscit\ABOUR.html">About</a>
+       <a href="C:\Users\stjos\OneDrive\Desktop\fy bscit\contact.html">Contact</a>
+
+        
+</nav>
+
+    </nav>
+    <div class="hero">
+        <img src="C:\Users\stjos\OneDrive\Desktop\fy bscit\New Folder\PHOTO.JPG"alt="Restaurant Interior">
+    </div>
+    <div class="container">
+        <h2>Welcome to Our Restaurant</h2>
+        <p>Experience the finest dining with a cozy atmosphere.</p>
+        <div class="gallery">
+            <img src="images/Paneer-Tikka-Masala.jpg"alt="Dish 1">
+            <img src="images/biryani.jpg" alt="Dish 2">
+            <img src="images/tikka .jpg"alt="Dish 3">
+        </div>
+    </div>
+    <div class="menu">
+        <h2>Our Menu</h2>
+        <ul>
+            <li class="menu-item"><strong>Butter 
+            <li class="menu-item"><strong>Paneer Tikka</strong> - Grilled cottage cheese marinated with spices.</li>
+            <li class="menu-item"><strong>Paneer Tikka</strong> - Slow-cooked black lentils with butter and cream.</li>
+            <li class="menu-item"><strong>Biryani</strong> - Aromatic rice dish with  vegetables.</li>
+            <li class="menu-item"><strong>Naan</strong> - Soft and fluffy Indian bread.</li>
+            <li class="menu-item"><strong>Gulab Jamun</strong> - Deep-fried milk dumplings soaked in syrup.</li>
+        </ul>
+    </div>
+    <footer>
+        <p>&copy; 2025 Spice & Soul. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
