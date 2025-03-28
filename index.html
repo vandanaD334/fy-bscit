@@ -6,7 +6,7 @@
     <title>Spice & Soul Restaurant</title>
     <style>
         body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f8f8f8; }
-        header { background: #333; color: white; text-align: center; padding: 20px; animation: fadeIn 8s ease-in; }
+        header { background: #333; color: white; text-align: center; padding: 20px; animation: fadeIn 1.5s ease-in; }
         nav { text-align: center; background: #444; padding: 10px; animation: slideDown 1s ease-in-out; }
         nav a { color: white; margin: 0 15px; text-decoration: none; font-size: 18px; transition: color 0.3s ease-in-out; }
         nav a:hover { color: #ffcc00; }
@@ -16,7 +16,7 @@
         footer { text-align: center; padding: 15px; background: #333; color: white; position: relative; bottom: 0; width: 100%; animation: fadeIn 2s ease-in; }
         .hero { text-align: center; animation: zoomIn 2s ease-in-out; }
         .hero img { width: 100%; max-height: 400px; object-fit: cover; }
-        .gallery { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+        .gallery { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; padding: 20px 0; }
         .gallery img { width: 30%; height: 200px; object-fit: cover; border-radius: 5px; transform: scale(0.8); transition: transform 0.5s ease-in-out; }
         .gallery img:hover { transform: scale(1); }
 
@@ -43,37 +43,41 @@
         <h1>Spice & Soul</h1>
         <p>Delicious Food, Great Ambience</p>
     </header>
-    <nav>
-        <a href= "index.html">Home</a>
-        <a href="menu.html">Menu</a> 
-       <a href="about.html">About</a>
-       <a href="contact.html">Contact</a>
 
-        
-</nav>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a> 
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
     <div class="hero">
-        <img src="images/Restaurant Interior.jpg"alt="Restaurant Interior">
+        <img src="images/Restaurant Interior.jpg" alt="Restaurant Interior">
     </div>
+
     <div class="container">
         <h2>Welcome to Our Restaurant</h2>
         <p>Experience the finest dining with a cozy atmosphere.</p>
+
         <div class="gallery">
-            <img src="images/Paneer-Tikka-Masala.jpg"alt="Dish 1">
-            <img src="images/biryani.jpg" alt="Dish 2">
-            <img src="images/tikka .jpg"alt="Dish 3">
+            <img src="images/Paneer-Tikka-Masala.jpg" alt="Paneer Tikka Masala">
+            <img src="images/biryani.jpg" alt="Biryani">
+            <img src="images/tikka.jpg" alt="Tikka Dish">
         </div>
     </div>
+
     <div class="menu">
         <h2>Our Menu</h2>
         <ul>
-            <li class="menu-item"><strong>Butter </strong>tescite</li>
+            <li class="menu-item"><strong>Butter Chicken</strong> - Creamy tomato-based chicken curry.</li>
             <li class="menu-item"><strong>Paneer Tikka</strong> - Grilled cottage cheese marinated with spices.</li>
             <li class="menu-item"><strong>Dal Makhani</strong> - Slow-cooked black lentils with butter and cream.</li>
-            <li class="menu-item"><strong>Biryani</strong> - Aromatic rice dish with  vegetables.</li>
+            <li class="menu-item"><strong>Biryani</strong> - Aromatic rice dish with vegetables.</li>
             <li class="menu-item"><strong>Naan</strong> - Soft and fluffy Indian bread.</li>
             <li class="menu-item"><strong>Gulab Jamun</strong> - Deep-fried milk dumplings soaked in syrup.</li>
         </ul>
     </div>
+
     <footer>
         <p>&copy; 2025 Spice & Soul. All Rights Reserved.</p>
     </footer>

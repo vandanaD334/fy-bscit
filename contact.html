@@ -6,7 +6,7 @@
     <title>Contact Us</title>
     <style>
         body { 
-            font-family: Arial; 
+            font-family: Arial, sans-serif; 
             margin: 0; 
             background: whitesmoke; 
             text-align: center; 
@@ -45,24 +45,27 @@
         form { 
             display: flex; 
             flex-direction: column; 
-            gap: 10px; 
+            gap: 12px; 
         }
         label {
-    color: darkblue; 
-    font-weight: bold;
+            color: darkblue; 
+            font-weight: bold;
+            text-align: left;
         }
         input, textarea { 
             padding: 10px; 
             border: 1px solid silver; 
             border-radius: 5px; 
+            font-size: 16px;
         }
         button { 
             background: coral; 
             color: white; 
             border: none; 
-            padding: 10px; 
+            padding: 12px; 
             border-radius: 5px; 
             cursor: pointer; 
+            font-size: 16px;
         }
         button:hover { 
             background: chocolate; 
@@ -71,10 +74,11 @@
             display: block; 
             background: limegreen; 
             color: white; 
-            padding: 10px; 
+            padding: 12px; 
             border-radius: 5px; 
             text-decoration: none; 
             margin: 15px 0; 
+            font-size: 16px;
         }
         .whatsapp-btn:hover { 
             background: forestgreen; 
@@ -83,6 +87,7 @@
             display: none; 
             padding: 10px; 
             border-radius: 5px; 
+            font-size: 14px;
         }
         .success { 
             background: honeydew; 
@@ -96,40 +101,42 @@
             from { opacity: 0; }
             to { opacity: 1; }
         }
-       
     </style>
 </head>
 <body>
     <header><h1>Contact Us</h1></header>
-    <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="menu.html">Menu</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
-        </nav>
-        
     
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
 
     <section>
         <h2>Get in Touch</h2>
         <form id="contact-form">
             <label for="name">Your Name:</label>
             <input type="text" id="name" placeholder="Your Name" required>
-            <label for="message">Your Message:</label>
-             <textarea id="message" placeholder="Your Message" required rows="4"></textarea>
+            
+            <label for="email">Your Email:</label>
             <input type="email" id="email" placeholder="Your Email" required>
+            
+            <label for="message">Your Message:</label>
+            <textarea id="message" placeholder="Your Message" required rows="4"></textarea>
+            
             <button type="submit">Send</button>
             <p class="msg success">Message sent successfully!</p>
             <p class="msg error">Please fill all fields.</p>
         </form>
         
-        <a href="https://wa.me/917038463287" class="whatsapp-btn">Chat on WhatsApp</a>
+        <a href="https://wa.me/917038463287" class="whatsapp-btn" target="_blank">Chat on WhatsApp</a>
         
         <p>📍 123 Food Street | 📞 +91 7038463287 | 🕒 8AM-12AM</p>
     </section>
 
-    <footer>&copy; 2025 Restaurant Name</footer>
+    <footer>&copy; 2025 Spice & Soul</footer>
 
     <script>
         document.getElementById("contact-form").addEventListener("submit", function(e) {
@@ -138,23 +145,26 @@
             const email = document.getElementById("email").value.trim();
             const message = document.getElementById("message").value.trim();
             const [success, error] = document.querySelectorAll(".msg");
-            const submitButton=this.querySelector("button")
+            const submitButton = this.querySelector("button");
 
             success.style.display = error.style.display = "none";
-            
+
             if (!name || !email || !message) {
                 error.style.display = "block";
             } else {
                 success.style.display = "block";
-                submitButton.disabled=true;
+                submitButton.disabled = true;
+
                 window.open(`https://wa.me/917038463287?text=${encodeURIComponent(
                     `Name: ${name}\nEmail: ${email}\nMessage: ${message}`
                 )}`, "_blank");
+
                 this.reset();
+                
                 setTimeout(() => {
                     success.style.display = "none";
-                    submitButton.disabled=false;
-                },3000);
+                    submitButton.disabled = false;
+                }, 3000);
             }
         });
     </script>
