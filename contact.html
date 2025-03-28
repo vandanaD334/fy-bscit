@@ -47,6 +47,10 @@
             flex-direction: column; 
             gap: 10px; 
         }
+        label {
+    color: darkblue; 
+    font-weight: bold;
+        }
         input, textarea { 
             padding: 10px; 
             border: 1px solid silver; 
@@ -92,41 +96,29 @@
             from { opacity: 0; }
             to { opacity: 1; }
         }
-        @keyframes slideDown {
-            from { transform: translateY(-50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        @keyframes fadeInUp {
-            from { transform: translateY(30px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        @keyframes zoomIn {
-            from { transform: scale(0.8); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
- @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+       
     </style>
 </head>
 <body>
     <header><h1>Contact Us</h1></header>
     <nav>
-        <ul>
-       <a href= "index.html">Home</a>
-        <a href="menu.HTML">Menu</a>
-       <a href="about.html">About</a>
-
-        </ul>
-    </nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+        
+    
 
     <section>
         <h2>Get in Touch</h2>
         <form id="contact-form">
+            <label for="name">Your Name:</label>
             <input type="text" id="name" placeholder="Your Name" required>
+            <label for="message">Your Message:</label>
+             <textarea id="message" placeholder="Your Message" required rows="4"></textarea>
             <input type="email" id="email" placeholder="Your Email" required>
-            <textarea id="message" placeholder="Your Message" required rows="4"></textarea>
             <button type="submit">Send</button>
             <p class="msg success">Message sent successfully!</p>
             <p class="msg error">Please fill all fields.</p>
@@ -146,6 +138,7 @@
             const email = document.getElementById("email").value.trim();
             const message = document.getElementById("message").value.trim();
             const [success, error] = document.querySelectorAll(".msg");
+            const submitButton=this.querySelector("button")
 
             success.style.display = error.style.display = "none";
             
@@ -153,11 +146,15 @@
                 error.style.display = "block";
             } else {
                 success.style.display = "block";
+                submitButton.disabled=true;
                 window.open(`https://wa.me/917038463287?text=${encodeURIComponent(
                     `Name: ${name}\nEmail: ${email}\nMessage: ${message}`
                 )}`, "_blank");
                 this.reset();
-                setTimeout(() => success.style.display = "none", 3000);
+                setTimeout(() => {
+                    success.style.display = "none";
+                    submitButton.disabled=false;
+                },3000);
             }
         });
     </script>
