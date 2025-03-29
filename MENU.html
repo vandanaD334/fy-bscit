@@ -11,9 +11,8 @@
             background: #1f1d1d; 
             color: white;
         }
-        header { 
+        header, footer { 
             background: #080808; 
-            color: white; 
             text-align: center; 
             padding: 20px; 
         }
@@ -49,15 +48,8 @@
             border-bottom: 2px solid #4CAF50; 
             padding-bottom: 10px; 
         }
-        ul { 
-            padding: 0; 
-            list-style: none; 
-        }
-        ul li { 
-            padding: 10px 0; 
-            font-size: 18px; 
-            font-weight: bold; 
-        }
+        ul { list-style: none; padding: 0; }
+        ul li { padding: 10px 0; font-size: 18px; font-weight: bold; }
         img { 
             width: 100%; 
             max-width: 250px; 
@@ -66,8 +58,9 @@
             margin: 10px auto; 
             display: block; 
             cursor: pointer; 
+            transition: transform 0.3s; 
         }
-        img:hover { transform: scale(1.05); transition: transform 0.3s; }
+        img:hover { transform: scale(1.05); }
 
         /* Modal Styles */
         .modal {
@@ -107,20 +100,23 @@
             font-weight: bold;
             color: black;
             cursor: pointer;
+            border: none;
+            background: none;
         }
-        .close:hover {
-            color: red;
-        }
+        .close:hover { color: red; }
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(-20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #080808;
+        .modal.fade-out { opacity: 0; transition: opacity 0.3s ease-in-out; }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .menu-container { flex-direction: column; align-items: center; }
+            section { width: 90%; }
+            .modal-content { width: 80%; }
         }
     </style>
 </head>
@@ -141,13 +137,11 @@
             <h2>Starters</h2>
             <ul>
                 <li>Classic Caesar Salad</li>
-                <img src="images/Classic Caesar Salad.jpg" alt="Classic Caesar Salad" data-desc="A fresh mix of crisp romaine lettuce, parmesan cheese, croutons, and creamy Caesar dressing.">
-                
+                <img src="images/11.jpg" alt="Classic Caesar Salad" data-desc="A fresh mix of crisp romaine lettuce, parmesan cheese, croutons, and creamy Caesar dressing.">
                 <li>Bruschetta with Tomato & Basil</li>
-                <img src="images/Bruschetta with Tomato & Basil.jpg" alt="Bruschetta with Tomato & Basil" data-desc="Toasted bread topped with diced tomatoes, fresh basil, and a drizzle of olive oil.">
-                
+                <img src="images/12.jpg" alt="Bruschetta with Tomato & Basil" data-desc="Toasted bread topped with diced tomatoes, fresh basil, and a drizzle of olive oil.">
                 <li>Crispy Garlic Bread</li>
-                <img src="images/Crispy Garlic Bread.jpg" alt="Crispy Garlic Bread" data-desc="Golden toasted bread with rich garlic butter and herbs.">
+                <img src="images/13.jpg" alt="Crispy Garlic Bread" data-desc="Golden toasted bread with rich garlic butter and herbs.">
             </ul>
         </section>
 
@@ -155,13 +149,11 @@
             <h2>Main Courses</h2>
             <ul>
                 <li>Vegetable Stir-Fry</li>
-                <img src="images/Vegetable Stir-Fry.jpg" alt="Vegetable Stir-Fry" data-desc="A colorful mix of stir-fried vegetables with a savory soy-based sauce.">
-                
+                <img src="images/14.jpg" alt="Vegetable Stir-Fry" data-desc="A colorful mix of stir-fried vegetables with a savory soy-based sauce.">
                 <li>Paneer Butter Masala</li>
-                <img src="images/Paneer Butter Masala.jpg" alt="Paneer Butter Masala" data-desc="Soft paneer cubes cooked in a rich and creamy tomato-based curry.">
-                
+                <img src="images/15.jpg" alt="Paneer Butter Masala" data-desc="Soft paneer cubes cooked in a rich and creamy tomato-based curry.">
                 <li>Spinach & Ricotta Ravioli</li>
-                <img src="images/Spinach & Ricotta Ravioli.jpg" alt="Spinach & Ricotta Ravioli" data-desc="Homemade ravioli filled with fresh spinach and ricotta cheese, served in a light tomato sauce.">
+                <img src="images/16.jpg" alt="Spinach & Ricotta Ravioli" data-desc="Homemade ravioli filled with fresh spinach and ricotta cheese, served in a light tomato sauce.">
             </ul>
         </section>
 
@@ -169,13 +161,11 @@
             <h2>Desserts</h2>
             <ul>
                 <li>Chocolate Lava Cake</li>
-                <img src="images/Chocolate Lava Cake.jpg" alt="Chocolate Lava Cake" data-desc="A warm chocolate cake with a molten chocolate center.">
-                
+                <img src="images/17.jpg" alt="Chocolate Lava Cake" data-desc="A warm chocolate cake with a molten chocolate center.">
                 <li>Fruit Salad</li>
-                <img src="images/Fruit Salad.jpg" alt="Fruit Salad" data-desc="A refreshing mix of seasonal fruits served with a hint of honey.">
-                
+                <img src="images/18.jpg" alt="Fruit Salad" data-desc="A refreshing mix of seasonal fruits served with a hint of honey.">
                 <li>Mango Cheesecake</li>
-                <img src="images/Mango Cheesecake.jpg" alt="Mango Cheesecake" data-desc="A creamy cheesecake with a rich mango topping.">
+                <img src="images/19.jpg" alt="Mango Cheesecake" data-desc="A creamy cheesecake with a rich mango topping.">
             </ul>
         </section>
     </div>
@@ -187,7 +177,7 @@
     <!-- Modal Structure -->
     <div id="imageModal" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
+            <button class="close">&times;</button>
             <h2 id="dishTitle"></h2>
             <img id="dishImage" src="" alt="">
             <p id="dishDescription"></p>
@@ -211,9 +201,16 @@
             });
         });
 
-        closeModal.addEventListener("click", () => modal.style.display = "none");
+        closeModal.addEventListener("click", () => {
+            modal.classList.add("fade-out");
+            setTimeout(() => {
+                modal.style.display = "none";
+                modal.classList.remove("fade-out");
+            }, 300);
+        });
+
         window.addEventListener("click", event => {
-            if (event.target === modal) modal.style.display = "none";
+            if (event.target === modal) closeModal.click();
         });
     </script>
 </body>
